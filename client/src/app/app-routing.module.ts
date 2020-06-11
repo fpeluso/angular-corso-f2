@@ -1,9 +1,8 @@
-import { MagazzinoComponent } from './magazzino/magazzino.component';
-import { LoginComponent } from './login/login.component';
-import { ProdottoComponent } from './prodotto/prodotto.component';
-import { ScontrinoComponent } from './scontrino/scontrino.component';
-import { CarrelloComponent } from './carrello/carrello.component';
-import { CatalogoComponent } from './catalogo/catalogo.component';
+import { MagazzinoComponent } from './components/magazzino/magazzino.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProdottoComponent } from './components/prodotto/prodotto.component';
+import { ScontrinoComponent } from './components/scontrino/scontrino.component';
+import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 

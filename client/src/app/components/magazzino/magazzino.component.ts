@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
-import { CrudService } from './../crud.service';
-import { ProdottoImpl } from './../prodottoImpl';
+import { CrudService } from './../../services/crud.service';
+import { ProdottoImpl } from './../../models/prodottoImpl';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

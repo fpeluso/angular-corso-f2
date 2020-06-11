@@ -1,4 +1,4 @@
-import { Prodotto } from './interfaces/prodotto';
+import { Prodotto } from '../interfaces/prodotto';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 

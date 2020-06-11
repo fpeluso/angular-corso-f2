@@ -1,4 +1,4 @@
-import { ProdottoImpl } from './../prodottoImpl';
+import { ProdottoImpl } from '../models/prodottoImpl';
 export interface ItemsInCart {
     item: ProdottoImpl;
     quantity: number;

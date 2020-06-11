@@ -1,5 +1,5 @@
-import { SessionService } from './../session.service';
-import { ItemsInCart } from './../interfaces/itemsInCart';
+import { SessionService } from './../../services/session.service';
+import { ItemsInCart } from './../../interfaces/itemsInCart';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

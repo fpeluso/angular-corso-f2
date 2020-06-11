@@ -1,4 +1,4 @@
-import { Prodotto } from './interfaces/prodotto';
+import { Prodotto } from '../interfaces/prodotto';
 export class ProdottoImpl implements Prodotto {
     _id: { $oid: string };
     nome: string;
