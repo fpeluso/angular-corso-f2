@@ -1,4 +1,19 @@
 <div class="row">
+    <div class="col-xl">
+        <form>
+            <div class="form-group">
+                <label for="nome">Nome Prodotto:</label>
+                <!-- <input [(ngModel)]="searchName" (ngModelChange)="search()" type="text" class="form-control"
+                    placeholder="Nome Prodotto" name="nome" id="nome" required> -->
+                <input [(ngModel)]="searchName" (input)="search()" type="text" class="form-control"
+                    placeholder="Nome Prodotto" name="nome" id="nome" required>
+                <button (click)="search()" class="btn btn-primary">Cerca</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- <app-search></app-search> -->
+<div class="row">
     <div class="col-xl-6">
         <h2>Catalogo</h2>
         <table class="table table-hover">
@@ -12,12 +27,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let p of prodotti; index as i">
+                <tr *ngFor="let p of prodottiMostrati; index as i">
                     <td>{{p.nome}}</td>
                     <td>{{p.descrizione}}</td>
                     <td>{{p.prezzo}}&euro;</td>
                     <td>
-                        <input class="form-control-sm" type="number" [(ngModel)]="p.quantity">
+                        <input class="form-control-sm" type="number" [(ngModel)]="p.quantity" required>
                     </td>
                     <td>
                         <button (click)="addProductToCart(i)" class="btn-sm btn-primary">+</button>

@@ -1,3 +1,4 @@
+import { CancellaComponent } from './components/cancella/cancella.component';
 import { MagazzinoComponent } from './components/magazzino/magazzino.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProdottoComponent } from './components/prodotto/prodotto.component';
@@ -13,6 +14,9 @@ const routes: Routes = [
   { path: 'scontrino', component: ScontrinoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'magazzino', component: MagazzinoComponent },
+  { path: 'cancella/:id', component: CancellaComponent },
+  { path: 'conferma', redirectTo: 'scontrino', pathMatch: 'full' },
+  { path: 'annulla', redirectTo: 'scontrino', pathMatch: 'full' },
 ];
 
 @NgModule({

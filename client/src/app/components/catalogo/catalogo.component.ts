@@ -13,8 +13,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogoComponent implements OnInit {
 
+  searchName: string;
   prodotto: ProdottoImpl = new ProdottoImpl();
   prodotti: Array<ProdottoImpl> = [];
+  prodottiMostrati: Array<ProdottoImpl> = [];
 
   cartItem: ProdottoImpl = new ProdottoImpl();
   cartItems: Array<ItemsInCart> = [];
@@ -31,7 +33,24 @@ export class CatalogoComponent implements OnInit {
         const resProd = { ...d }
         this.prodotti.push(resProd);
       }
+      this.prodottiMostrati = [...this.prodotti];
+      this.cartItems = this.cartService.getCart();
     })
+  }
+
+  search() {
+    if (this.searchName) {
+      console.log(this.searchName);
+      let lower = this.searchName.toLowerCase();
+      this.prodottiMostrati = [];
+      this.prodotti.forEach(p => {
+        if (p.nome.toLowerCase().indexOf(lower) >= 0) {
+          this.prodottiMostrati.push(p);
+        }
+      })
+    } else {
+      this.prodottiMostrati = [...this.prodotti];
+    }
   }
 
   addProductToCart(i: number): void {
@@ -48,13 +67,15 @@ export class CatalogoComponent implements OnInit {
       let itemToAdd: ItemsInCart = { item: new ProdottoImpl(), quantity: 0, isQuantityEdit: false };
       itemToAdd.item = this.prodotti[i];
       itemToAdd.quantity = this.prodotti[i].quantity;
-      this.cartItems.push({ ...itemToAdd });
+      //this.cartItems.push({ ...itemToAdd });
+      this.cartService.addToCart({ ...itemToAdd });
       // this.quantity = undefined;
     }
   }
 
   removeProductFromCart(i: number): void {
-    this.cartItems.splice(i, 1);
+    this.router.navigateByUrl(`/cancella/${i}`);
+    //this.cartService.removeFromCart(i);
   }
 
   editProductInCart(i: number): void {
@@ -81,7 +102,7 @@ export class CatalogoComponent implements OnInit {
   }
 
   pagamento(): void {
-    this.cartService.setCart(this.cartItems)
+    //this.cartService.setCart(this.cartItems)
     this.router.navigateByUrl('/scontrino');
   }
 

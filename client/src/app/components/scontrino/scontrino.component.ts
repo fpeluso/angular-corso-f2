@@ -1,6 +1,7 @@
 import { SessionService } from './../../services/session.service';
 import { ItemsInCart } from './../../interfaces/itemsInCart';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scontrino',
@@ -13,7 +14,7 @@ export class ScontrinoComponent implements OnInit {
 
   modifyQuantity: number;
 
-  constructor(private cartService: SessionService) { }
+  constructor(private router: Router, private cartService: SessionService) { }
 
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
@@ -21,7 +22,7 @@ export class ScontrinoComponent implements OnInit {
   }
 
   delProduct(i: number) {
-    this.cart.splice(i, 1);
+    this.router.navigateByUrl(`/cancella/${i}`);
   }
 
   edit(i: number) {

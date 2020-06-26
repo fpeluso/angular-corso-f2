@@ -11,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { MagazzinoComponent } from './components/magazzino/magazzino.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './components/search/search.component';
+import { SearchAdvComponent } from './components/search-adv/search-adv.component';
+import { CancellaComponent } from './components/cancella/cancella.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { HttpClientModule } from '@angular/common/http';
     ScontrinoComponent,
     ProdottoComponent,
     LoginComponent,
-    MagazzinoComponent
+    MagazzinoComponent,
+    SearchComponent,
+    SearchAdvComponent,
+    CancellaComponent
   ],
   imports: [
     BrowserModule,
